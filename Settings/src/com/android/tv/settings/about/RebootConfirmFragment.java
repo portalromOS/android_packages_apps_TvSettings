@@ -36,7 +36,7 @@ import androidx.leanback.widget.GuidedAction;
 import com.android.tv.settings.R;
 import com.android.tv.settings.overlay.FlavorUtils;
 
-import org.lineageos.internal.util.PowerMenuUtils;
+import org.portalrom.internal.util.PowerMenuUtils;
 
 import java.util.List;
 

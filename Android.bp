@@ -52,7 +52,7 @@ android_app {
         "tvsettings-logtags",
         "TwoPanelSettingsLib",
         "zxing-core-1.7",
-        "org.lineageos.platform.internal",
+        "org.portalrom.platform.internal",
     ],
 }
 
@@ -97,7 +97,7 @@ android_app {
         "tvsettings-logtags",
         "TwoPanelSettingsLib",
         "zxing-core-1.7",
-        "org.lineageos.platform.internal",
+        "org.portalrom.platform.internal",
     ],
     jacoco: {
         include_filter: [

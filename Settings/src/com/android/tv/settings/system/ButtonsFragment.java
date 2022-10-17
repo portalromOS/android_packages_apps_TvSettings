@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021 The PortalRom Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import androidx.annotation.Keep;
 import com.android.tv.settings.R;
 import com.android.tv.settings.SettingsPreferenceFragment;
 
-import org.lineageos.internal.logging.LineageMetricsLogger;
+import org.portalrom.internal.logging.PortalRomMetricsLogger;
 
 /**
  * The button settings screen in TV settings.

@@ -96,9 +96,9 @@
         android:title="@string/fcc_equipment_id"
         android:summary="@string/device_info_default"/>
 
-    <!-- LineageOS version -->
-    <Preference android:key="lineage_version"
-        android:title="@*lineageos.platform:string/lineage_version"
+    <!-- PortalRom version -->
+    <Preference android:key="portalrom_version"
+        android:title="@*portalrom.platform:string/portalrom_version"
         android:summary="@string/device_info_default"/>
 
     <!-- Device Baseband version -->
@@ -113,7 +113,7 @@
 
     <!-- Device Build date -->
     <Preference android:key="build_date"
-        android:title="@*lineageos.platform:string/build_date"
+        android:title="@*portalrom.platform:string/build_date"
         android:summary="@string/device_info_default"/>
 
     <!-- Detailed build version -->

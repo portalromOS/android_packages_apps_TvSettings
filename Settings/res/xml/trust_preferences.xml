@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2018-2022 The LineageOS Project
+     Copyright (C) 2018-2022 The PortalRom Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@
         android:key="trust_category_tools"
         android:title="@string/trust_category_tools">
 
-        <lineageos.preference.LineageGlobalSettingListPreference
+        <portalrom.preference.PortalRomGlobalSettingListPreference
             android:key="trust_restrict_usb"
             android:title="@string/trust_restrict_usb_title"
             android:summary="@string/trust_restrict_usb_summary"
@@ -50,8 +50,8 @@
             android:entryValues="@array/trust_restrict_usb_values"
             android:defaultValue="0" />
 
-        <org.lineageos.internal.lineageparts.LineagePartsPreference
-            android:key="lineagestats" />
+        <org.portalrom.internal.portalromparts.PortalRomPartsPreference
+            android:key="portalromstats" />
 
     </PreferenceCategory>
 

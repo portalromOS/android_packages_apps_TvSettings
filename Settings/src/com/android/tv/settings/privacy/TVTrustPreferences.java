@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2022 The LineageOS Project
+ * Copyright (C) 2021-2022 The PortalRom Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,14 +25,14 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreference;
 
-import lineageos.preference.LineageGlobalSettingListPreference;
-import lineageos.providers.LineageSettings;
-import lineageos.trust.TrustInterface;
+import portalrom.preference.PortalRomGlobalSettingListPreference;
+import portalrom.providers.PortalRomSettings;
+import portalrom.trust.TrustInterface;
 
 import com.android.tv.settings.R;
 import com.android.tv.settings.SettingsPreferenceFragment;
 
-import org.lineageos.internal.logging.LineageMetricsLogger;
+import org.portalrom.internal.logging.PortalRomMetricsLogger;
 
 public class TVTrustPreferences extends SettingsPreferenceFragment {
     private static final String TAG = "TVTrustPreferences";
@@ -41,7 +41,7 @@ public class TVTrustPreferences extends SettingsPreferenceFragment {
     private Preference mSecurityPatchesPref;
     private Preference mEncryptionPref;
     private PreferenceCategory mToolsCategory;
-    private LineageGlobalSettingListPreference mUsbRestrictorPref;
+    private PortalRomGlobalSettingListPreference mUsbRestrictorPref;
 
     private PreferenceCategory mWarnScreen;
     private SwitchPreference mWarnSELinuxPref;
@@ -98,8 +98,8 @@ public class TVTrustPreferences extends SettingsPreferenceFragment {
         setupSecurityPatches(secPLevel, secVLevel);
         setupEncryption(encryptLevel);
 
-        int currentFeatures = LineageSettings.Secure.getInt(getContext().getContentResolver(),
-                LineageSettings.Secure.TRUST_WARNINGS, TrustInterface.TRUST_WARN_MAX_VALUE);
+        int currentFeatures = PortalRomSettings.Secure.getInt(getContext().getContentResolver(),
+                PortalRomSettings.Secure.TRUST_WARNINGS, TrustInterface.TRUST_WARN_MAX_VALUE);
         mWarnSELinuxPref.setChecked((currentFeatures & TrustInterface.TRUST_WARN_SELINUX) != 0);
         mWarnKeysPref.setChecked((currentFeatures & TrustInterface.TRUST_WARN_PUBLIC_KEY) != 0);
 
@@ -181,7 +181,7 @@ public class TVTrustPreferences extends SettingsPreferenceFragment {
         int icon;
         int summary;
         boolean isLegacy = getContext().getResources()
-                .getBoolean(org.lineageos.platform.internal.R.bool.config_trustLegacyEncryption);
+                .getBoolean(org.portalrom.platform.internal.R.bool.config_trustLegacyEncryption);
         if (level == TrustInterface.TRUST_FEATURE_LEVEL_GOOD) {
             icon = R.drawable.ic_trust_encryption_good;
             summary = R.string.trust_feature_encryption_value_enabled;
@@ -206,11 +206,11 @@ public class TVTrustPreferences extends SettingsPreferenceFragment {
     }
 
     private boolean onWarningChanged(Boolean value, int feature) {
-        int original = LineageSettings.Secure.getInt(getContext().getContentResolver(),
-                LineageSettings.Secure.TRUST_WARNINGS, TrustInterface.TRUST_WARN_MAX_VALUE);
+        int original = PortalRomSettings.Secure.getInt(getContext().getContentResolver(),
+                PortalRomSettings.Secure.TRUST_WARNINGS, TrustInterface.TRUST_WARN_MAX_VALUE);
         int newValue = value ? (original | feature) : (original & ~feature);
-        boolean success = LineageSettings.Secure.putInt(getContext().getContentResolver(),
-                LineageSettings.Secure.TRUST_WARNINGS,
+        boolean success = PortalRomSettings.Secure.putInt(getContext().getContentResolver(),
+                PortalRomSettings.Secure.TRUST_WARNINGS,
                 newValue & TrustInterface.TRUST_WARN_MAX_VALUE);
         if (success && !value) {
             mInterface.removeNotificationForFeature(feature);
